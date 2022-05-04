@@ -24,13 +24,11 @@
 <body>
 	<div class=container>
 		<footer class="footer">
-
 			<br /> <br />
-			<hr />
-			<div style="font-size: 15px;">15022 경기도 시흥시 정왕4동 부성파스텔 / 지하철
-				4호선 오이도역 031-433-5270</div>
-			<div style="font-size: 15px;">Copyright (c) StrawberryMarket.
-				All rights reserved.</div>
+			<div style="font-size: 15px; margin-top: 10%;">
+				<hr />
+				04617 서울특별시 중구 동호로 256 / 지하철 3호선 동대입구역 02-6110-3321</div>
+			<div style="font-size: 15px;">Copyright (c) StrawberryMarket. All rights reserved.</div>
 			<br /> <br />
 		</footer>
 	</div>

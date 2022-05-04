@@ -33,6 +33,7 @@ import net.lele.service.ProductService;
 import net.lele.service.Product_imageService;
 import net.lele.service.StateService;
 import net.lele.service.UserService;
+import net.lele.utils.EncryptionUtils;
 import net.lele.utils.UploadFileUtils;
 
 @Controller
@@ -269,6 +270,21 @@ public class UserController {
 		model.addAttribute("m", messageService.findById(id));
 
 		return "user/msg/rmsg";
+	}
+
+	@RequestMapping(value = "user/changepw", method = RequestMethod.POST)
+	public String change_pw(HttpServletRequest request, Model model) throws Exception {
+	   
+	   String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+	   User u = userService.findByUserId(userId);
+	   
+	   String pw = request.getParameter("passwd");
+	   String enc_pw = EncryptionUtils.encryptMD5(pw);
+	
+	   u.setPassword(enc_pw);
+	   userRepository.save(u);
+ 
+	   return "redirect:/shop/index";
 	}
 
 }
