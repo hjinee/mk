@@ -39,7 +39,7 @@
 			<form action="/shop/search" class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search" name="word"
 					placeholder="Search" aria-label="Search"
-					style="margin-top: 10px; width: 250px;">
+					style="width: 250px;">
 				<button class="btn btn-outline-success my-2 my-sm-0"
 					style="margin-top: 15px;" type="submit">
 					<span class="glyphicon glyphicon-search"
