@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,11 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Value;
 
-import net.lele.dao.User;
 import net.lele.domain.City;
 import net.lele.domain.Interest_product;
 import net.lele.domain.Search;
-import net.lele.mapper.UserMapper;
 import net.lele.model.UserRegistrationModel;
 import net.lele.service.CategoryService;
 import net.lele.service.CityService;
@@ -75,8 +72,6 @@ public class ShopController {
 
     @Value("${spring.datasource.password}")
     private String password;
-
-    UserMapper userMapper;
 
 	@RequestMapping({ "/", "shop/index" })
 	public String index(Model model) throws Exception {
