@@ -1,6 +1,7 @@
 package net.lele.controller;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -191,9 +192,10 @@ public class ShopController {
 
 	@RequestMapping(value = "shop/searchUser")
 	public String searchUser(@RequestParam("word") String word, Model model) throws Exception {
-		StringBuilder result = new StringBuilder();
+
+		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+
 		if(word != "") {
-		
 			try {
 				Class.forName(driver);
 				Connection con = DriverManager.getConnection(url, user, password);
@@ -202,38 +204,39 @@ public class ShopController {
 					System.out.println("Connect to database successfully.");
 
 				Statement statement = con.createStatement();
-				// String sql = "select * from user where nickname = '%" + word + "%'";
-				String sql = "select * from user where nickname = '" + word + "'";
-				// String sql = "select * from user";
-				// String sql = "select * from user where nickname = '${userID}'";
+				String sql = "select * from user where nickname like '%" + word + "%'";
 				logger.info(sql);
 				ResultSet rs = statement.executeQuery(sql);
-
+				
 				while (rs.next()) {
+					ArrayList<String> line = new ArrayList<String>();
+
 					Integer res_id = rs.getInt("id");
+					line.add(Integer.toString(res_id));
+
 					String res_name = rs.getString("nickname");
+					line.add(res_name);
+
 					String res_addr = rs.getString("address");
+					line.add(res_addr);
+
 					String info = String.format("%d %s %s\n", res_id, res_name, res_addr);
-					result.append(info);
+					
+					list.add(line);
+	
 					logger.info(info);
 				}
 				rs.close();
 				con.close();
 
 			} catch (ClassNotFoundException e) {
-				logger.error("Sorry,can`t find the Driver!");
+				logger.error("Sorry, can`t find the Driver!");
 			} catch (SQLException e) {
 				logger.error(e.toString());
 			}
-			// model.addAttribute("list", result.toString());
-			System.out.println(result.toString());
-			// return result.toString();
 		}
 
-		model.addAttribute("list", result.toString());
-		// model.addAttribute("category", categoryService.findAll());
-		// model.addAttribute("list", productService.findByTitleContains(word));
-		// model.addAttribute("product_image", product_imageService.findByProductidgroup());
+		model.addAttribute("list", list);
 		return "shop/searchUser";
 	}
 
