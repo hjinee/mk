@@ -85,6 +85,13 @@ h1 {
 	margin-right: auto;
 	display: block;
 }
+th {
+	font-size: 20px; 
+	color: #000000; 
+	font-weight: bold;
+	padding: 5px;
+}
+
 </style>
 <body>
 <%@ include file="../include/nav.jsp"%>
@@ -99,11 +106,34 @@ h1 {
 		</form>
 		<br />
 		<br />
-		<c:forEach var="p" items="${list}">
-				<span style="font-size: 20px; color: #000000; font-weight: bold;">
-					<c:out value="${p}"></c:out>
-				</span>
-		</c:forEach>
+
+		<table border="2" style="margin: auto; text-align: center;">
+			<tr>
+				<th style="background-color: aliceblue; width: 20px;">
+					번호
+				</th>
+				<th style="background-color: aliceblue; width: 100px;">
+					닉네임
+				</th>
+				<th style="background-color: aliceblue; width: 500px;">
+					주소
+				</th>
+			</tr>
+			<c:forEach var="p" items="${list}">
+				<tr>
+					<th>
+						<span><c:out value="${p[0]}"></c:out></span>
+					</th>
+					<th>
+						<!-- 닉네임 누르면 회원 창으로 ㄱㄱ-->
+						<span onclick="location.href='/shop/product/${p[0]}'"><c:out value="${p[1]}"></c:out></span>
+					</th>
+					<th>
+						<c:out value="${p[2]}"></c:out>
+					</th>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 <%@ include file="../include/bottom.jsp"%>
 </body>
