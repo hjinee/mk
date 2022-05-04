@@ -38,23 +38,23 @@
 	<br />
 	<div class="container">
 		<form:form method="post" modelAttribute="ask" autocomplete="off"
-			onkeydown="return captureReturnKey(event)">
-			<sec:authentication property="user.id" var="currentid" />
-			<form:hidden path="user" value="${currentid}" />
-			<div class="form-group">
-				<label>제목:</label>
-				<form:input path="title" class="form-control w400"
-					required="required" />
-			</div>
-			<div class="form-group">
-				<label>내용:</label>
-				<form:input path="detail" class="form-control w4h2"
-					required="required" />
-			</div>
-			<button type="submit" style="background-color: #F3969A;"
-				onclick="return confirm('작성 하시겠습니까?')" class="btn">작성</button>
+		   onkeydown="return captureReturnKey(event)">
+		   <sec:authentication property="user.id" var="currentid" />
+		   <form:hidden path="user" value="${currentid}" />
+		   <div class="form-group">
+			  <label>제목:</label>
+			  <form:input path="title" class="form-control w400"
+				 required="required" />
+		   </div>
+		   <div class="form-group">
+			  <label>내용:</label>
+			  <form:textarea path="detail" class="form-control w4h2" style="font-size: large;"
+				 required="required" />
+		   </div>
+		   <button type="submit" style="background-color: #F3969A;"
+			  onclick="return confirm('작성 하시겠습니까?')" class="btn">작성</button>
 		</form:form>
-	</div>
+	 </div>
 
 	<%@ include file="../include/bottom.jsp"%>
 

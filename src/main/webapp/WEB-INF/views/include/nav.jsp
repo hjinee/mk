@@ -28,7 +28,7 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<a href="${R}shop/index"><img src="/images/strawberry.jpg" align="middle"
-				style="height: 60px; weight:60px;"></a><a class="navbar-brand"
+				style="height: 60px; weight: 60px;"></a><a class="navbar-brand"
 				style="color: pink; font-family: 'Poor Story', cursive; font-size: 4em; margin-right: 20px;"
 				href="${R}shop/index">딸기마켓</a>
 			<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -49,38 +49,40 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav mr-auto">
 					<sec:authorize access="not authenticated">
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/shop/login" class="nav-item"
-							style="font-family: 'Poor Story', cursive; font-size: 13px; color: black; margin: 5px;">로그인</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/shop/register" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 5px;">회원가입</a></li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/shop/login" class="nav-item" style="font-family: 'Poor Story', cursive; font-size: 13px; color: black; margin: 5px;">로그인</a>
+						</li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/shop/register" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 5px;">회원가입</a>
+						</li>
 					</sec:authorize>
 					<sec:authorize access="authenticated">
 						<sec:authentication property="user.id" var="currentid" />
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/shop/users/${currentid}" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px;"><span
-								class="glyphicon glyphicon-user" style="margin-right: 3px;"></span>내정보</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px;"
-							href="${R}user/logout_processing">로그아웃</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/user/interest" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">관심상품</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/user/write" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">글쓰기</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/shop/searchUser?word=" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">회원검색</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/user/location" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">동네인증</a></li>
-						<li class="nav-item" style="margin-top: 13px;"><a
-							href="/user/msg/send" class="nav-item"
-							style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">쪽지함</a></li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/shop/users/${currentid}" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px;">
+								<span class="glyphicon glyphicon-user" style="margin-right: 3px;"></span>내 정보
+							</a>
+						</li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px;" href="${R}user/logout_processing">로그아웃</a>
+						</li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/user/interest" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">관심 상품</a>
+						</li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/user/write" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">글쓰기</a>
+						</li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/shop/searchUser?word=" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">회원 검색</a>
+						</li>
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/user/location" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">동네 인증</a>
+						</li>
+						<!-- 
+						<li class="nav-item" style="margin-top: 13px;">
+							<a href="/user/msg/send" class="nav-item" style="font-family: 'Poor Story', cursive; color: black; font-size: 13px; margin: 3px; color: black;">쪽지함</a>
+						</li>
+						-->
 					</sec:authorize>
 
 					<li class="nav-item dropdown"><a
@@ -92,8 +94,8 @@
 
 							<a class="btn btn-light btn-xs" href="/shop/notice">공지사항</a> <br />
 							<a class="btn btn-light btn-xs" href="/shop/notice">자주묻는질문</a>
-
 							<sec:authorize access="authenticated">
+								<a class="btn btn-light btn-xs" href="/user/changepw/${currentid}">비밀번호 변경</a>
 								<a class="btn btn-light btn-xs" href="/user/asklist">1:1문의</a>
 							</sec:authorize>
 						</div></li>
@@ -109,7 +111,7 @@
 		<div>
 			<ul>
 				<li><a href="${R}shop/hotproduct"
-					style="color: red; font-size: 1.5em; margin-right: 10px;">인기상품</a></li>
+					style="color: red; font-size: 1.5em; margin-right: 10px; ">인기상품</a></li>
 				<c:forEach var="c" items="${category}">
 					<li><a href="${R}shop/category/${c.id}"
 						style="color: black; font-size: 1.5em; margin-right: 10px;">${c.name}</a></li>

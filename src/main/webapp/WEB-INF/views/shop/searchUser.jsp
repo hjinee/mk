@@ -98,7 +98,7 @@ th {
 	<br />
 	<div class="container" style="text-align: center;">
 		<form action="/shop/searchUser" class="form-inline my-2 my-lg-0" style="text-align: right; display: block;">
-			<span style="font-size: 15px; color: #000000; font-weight: bold;">회원 검색</span>
+			<span style="font-size: 15px; color: #000000; font-weight: bold;">회원 검색&nbsp;&nbsp;</span>
 			<input class="form-control mr-sm-2" type="search" name="word" placeholder="닉네임을 입력하세요" aria-label="Search" style="width: 300px;">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
 				<span class="glyphicon glyphicon-search" style="margin-top: 10px; margin: 2px;"></span>
@@ -109,10 +109,10 @@ th {
 
 		<table border="2" style="margin: auto; text-align: center;">
 			<tr>
-				<th style="background-color: aliceblue; width: 20px;">
+				<th style="background-color: aliceblue; width: 100px;">
 					번호
 				</th>
-				<th style="background-color: aliceblue; width: 100px;">
+				<th style="background-color: aliceblue; width: 150px;">
 					닉네임
 				</th>
 				<th style="background-color: aliceblue; width: 500px;">
