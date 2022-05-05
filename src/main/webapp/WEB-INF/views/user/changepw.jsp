@@ -30,7 +30,7 @@
 <body>
    <%@ include file="../include/nav.jsp"%>
    <br />
-   <div style="margin-top: 35px; display:flex;  flex-direction: column; align-items: center;">
+   <div class="container" style="margin-top: 35px; display:flex;  flex-direction: column; align-items: center;">
       <h1>비밀 번호 변경</h1><br />
       <table style="width: 85%; margin-left: auto; margin-right: auto;"
          class="table">
@@ -38,8 +38,8 @@
             <td style="width: 85%;">
                <form method="post" action="/user/changepw">
                   <div class="form-group">
-                     <label>변경 할 비밀번호:</label> <input type="password" name="passwd"
-                        class="form-control w200" />
+                     <label>변경할 비밀번호:</label> 
+                     <input type="password" name="passwd" class="form-control w200" />
                   </div>
                   <hr />
                   <button type="submit" onClick="return confirm('변경하시겠습니까?')"
