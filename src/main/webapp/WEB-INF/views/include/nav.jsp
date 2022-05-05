@@ -95,7 +95,7 @@
 							<a class="btn btn-light btn-xs" href="/shop/notice">공지사항</a> <br />
 							<a class="btn btn-light btn-xs" href="/shop/notice">자주묻는질문</a>
 							<sec:authorize access="authenticated">
-								<a class="btn btn-light btn-xs" href="/user/changepw/${currentid}">비밀번호 변경</a>
+								<a class="btn btn-light btn-xs" href="/user/changepw">비밀번호 변경</a>
 								<a class="btn btn-light btn-xs" href="/user/asklist">1:1문의</a>
 							</sec:authorize>
 						</div></li>

@@ -272,19 +272,21 @@ public class UserController {
 		return "user/msg/rmsg";
 	}
 
-	@RequestMapping(value = "user/changepw", method = RequestMethod.POST)
+	@RequestMapping(value = "user/changepw")
 	public String change_pw(HttpServletRequest request, Model model) throws Exception {
 	   
-	   String userId = SecurityContextHolder.getContext().getAuthentication().getName();
-	   User u = userService.findByUserId(userId);
+	   if( request.getParameter("passwd") != null ) {
+			String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+			User u = userService.findByUserId(userId);
+		
+			String pw = request.getParameter("passwd");
+			String enc_pw = EncryptionUtils.encryptMD5(pw);
+	 
+			u.setPassword(enc_pw);
+			userRepository.save(u);
+	   }
 	   
-	   String pw = request.getParameter("passwd");
-	   String enc_pw = EncryptionUtils.encryptMD5(pw);
-	
-	   u.setPassword(enc_pw);
-	   userRepository.save(u);
- 
-	   return "redirect:/shop/index";
+	   return "user/changepw";
 	}
 
 }
