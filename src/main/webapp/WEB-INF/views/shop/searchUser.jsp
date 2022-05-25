@@ -126,7 +126,7 @@ th {
 					</th>
 					<th>
 						<!-- 닉네임 누르면 회원 창으로 ㄱㄱ-->
-						<span onclick="location.href='/shop/product/${p[0]}'"><c:out value="${p[1]}"></c:out></span>
+						<span onclick="location.href='/shop/users/${p[0]}'"><c:out value="${p[1]}"></c:out></span>
 					</th>
 					<th>
 						<c:out value="${p[2]}"></c:out>
@@ -136,5 +136,8 @@ th {
 		</table>
 	</div>
 <%@ include file="../include/bottom.jsp"%>
+
+
 </body>
 </html>
+

@@ -137,7 +137,7 @@ div .ddd{
 		<div id="gallery_wrap">
 			<ul class="slide_gallery">
 				<c:forEach var="pi" items="${pi}">
-					<li><img src="/images/${pi.filename}" class="imgg"></li>
+					<li><img src="/upload/${pi.filename}" class="imgg"></li>
 				</c:forEach>
 			</ul>
 		</div>

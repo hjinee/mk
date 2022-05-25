@@ -10,7 +10,4 @@ public class SmarketApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SmarketApplication.class, args);
 	}
-
-	
-
 }

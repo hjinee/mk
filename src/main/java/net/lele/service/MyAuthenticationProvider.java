@@ -51,8 +51,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
         private static final long serialVersionUID = 1L;
         User user;
 
-        public MyAuthenticaion (String loginId, String passwd,
-                                List<GrantedAuthority> grantedAuthorities, User user) {
+        public MyAuthenticaion (String loginId, String passwd, List<GrantedAuthority> grantedAuthorities, User user) {
             super(loginId, passwd, grantedAuthorities);
             this.user = user;
         }

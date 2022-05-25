@@ -1,5 +1,6 @@
 package net.lele.controller;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -63,7 +64,9 @@ public class UserController {
 	@Autowired
 	CommentService commentService;
 
-	private String uploadPath = "C:/Users/test/Desktop/Smarket/src/main/resources/static/images/";
+	// private String uploadPath = "C:/Users/test/Desktop/새 폴더/Smarket/src/main/resources/static/images";
+
+	private String uploadPath = "C:/Users/test/Desktop/folder/Smarket/src/main/webapp/upload";
 
 	@RequestMapping(value = "user/location")
 	public String location(Model model) throws Exception {
@@ -125,8 +128,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "user/fileinsert")
-	public String fileinsert(HttpServletRequest request, MultipartHttpServletRequest mtfRequest, Model model)
-			throws Exception {
+	public String fileinsert(HttpServletRequest request, MultipartHttpServletRequest mtfRequest, Model model) throws Exception {
 		Product p = new Product();
 		Product_image file = new Product_image();
 
@@ -167,21 +169,7 @@ public class UserController {
 
 			product_imageService.save(file);
 		}
-
-		/*
-		 * String sourceFileName = files.getOriginalFilename(); String imgUploadPath =
-		 * uploadPath; String ymdPath = UploadFileUtils.calcPath(imgUploadPath); String
-		 * fileName = null;
-		 * 
-		 * fileName = UploadFileUtils.fileUpload(imgUploadPath, sourceFileName,
-		 * files.getBytes(), ymdPath);
-		 * 
-		 * file.setFilename(fileName); file.setProductid(p.getId());
-		 * file.setFileOriName(sourceFileName); file.setFileurl(imgUploadPath);
-		 * 
-		 * product_imageService.save(file);
-		 */
-
+		
 		return "redirect:/shop/index";
 	}
 

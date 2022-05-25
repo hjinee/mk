@@ -33,6 +33,7 @@
 		<ul>
 			<li><a style="font-size:18px;margin:5;" href="/admin/notice">공지사항 작성</a></li>
 			<li><a style="font-size:18px;margin:5;" href="/admin/asklist">1:1 문의 보기</a></li>
+			<li><a style="font-size:18px;margin:5;" href="/admin/filecheck">파일 검사</a></li>
 		</ul>
 	</div>
 	

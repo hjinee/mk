@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import log4j2.Log4j2;
+
 import org.springframework.beans.factory.annotation.Value;
 
 import net.lele.domain.City;
@@ -62,7 +65,8 @@ public class ShopController {
 	CityService cityService;
 
 	private static Logger logger = LoggerFactory.getLogger(ShopController.class);
-    private static String driver = "com.mysql.jdbc.Driver";
+    // private static Logger logger = LoggerFactory.getLogger(Log4j2.class);
+	private static String driver = "com.mysql.jdbc.Driver";
 
     @Value("${spring.datasource.url}")
     private String url;
@@ -187,8 +191,8 @@ public class ShopController {
 
 	@RequestMapping(value = "shop/searchUser")
 	public String searchUser(@RequestParam("word") String word, Model model) throws Exception {
-
 		ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+		Log4j2 logg = new Log4j2();
 
 		if(word != "") {
 			try {
@@ -201,6 +205,7 @@ public class ShopController {
 				Statement statement = con.createStatement();
 				String sql = "select * from user where nickname like '%" + word + "%'";
 				logger.info(sql);
+				logg.llog("word: " + word);
 				ResultSet rs = statement.executeQuery(sql);
 				
 				while (rs.next()) {
@@ -227,10 +232,14 @@ public class ShopController {
 			} catch (ClassNotFoundException e) {
 				logger.error("Sorry, can`t find the Driver!");
 			} catch (SQLException e) {
+				ArrayList<String> line = new ArrayList<String>();
 				logger.error(e.toString());
+				String info = e.toString();
+				line.add(info);
+				list.add(line);
+				logger.info(info);
 			}
 		}
-
 		model.addAttribute("list", list);
 		return "shop/searchUser";
 	}
