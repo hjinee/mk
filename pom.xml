@@ -20,6 +20,14 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>2.17.2</version>
+			<type>pom</type>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -78,7 +86,7 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
-			<version>8.5.24</version>
+			<version>8.0.50</version>
 		</dependency>
 
 		<!-- BootStrap -->
@@ -105,7 +113,6 @@
 			<version>1.3.3</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -120,7 +127,6 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.1</version>
         </dependency>
- 
  
         <!-- MyBatis-Spring -->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
@@ -171,6 +177,32 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
+
+
+		<dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+          <version>2.12.1</version>
+        </dependency>
+
+		<dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+          <version>2.12.1</version>
+        </dependency>
+
+		<dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+          <version>2.12.1</version>
+        </dependency>
+
+		<dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-maven-plugin</artifactId>
+             <version>2.6.7</version>
+      	</dependency>
+
 	</dependencies>
 
 	<build>
@@ -179,6 +211,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration> 
+                  <archive> 
+                     <manifest> 
+                         <addClasspath>true</addClasspath>
+                           <mainClass>net.lele.SmarketApplication</mainClass> 
+                     </manifest> 
+                  </archive> 
+            </configuration>
+         	</plugin>
 		</plugins>
 	</build>
 

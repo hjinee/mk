@@ -168,6 +168,9 @@ h1 {
 
 		</div>
 	</div>
+	
 	<%@ include file="../include/bottom.jsp"%>
+	
 </body>
 </html>
+

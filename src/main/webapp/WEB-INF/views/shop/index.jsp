@@ -189,7 +189,7 @@ p .bb {
 					<c:if test="${p.id == pi.productid}">
 						<div class="abcd well"
 							onclick="location.href='/shop/product/${p.id}'">
-							<img src="/images/s/s_${pi.filename}" class="imgg">
+							<img src="/upload/s/s_${pi.filename}" class="imgg">
 
 							<div class="name">
 								<span
@@ -246,7 +246,6 @@ p .bb {
 
 				</c:forEach>
 			</c:forEach>
-
 
 
 		</div>

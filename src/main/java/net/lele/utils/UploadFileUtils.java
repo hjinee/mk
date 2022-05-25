@@ -19,6 +19,7 @@ public class UploadFileUtils {
 		UUID uid = UUID.randomUUID();
 
 		String newFileName = uid + "_" + fileName;
+		// String newFileName = fileName;
 		String imgPath = uploadPath;
 
 		File target = new File(imgPath, newFileName);

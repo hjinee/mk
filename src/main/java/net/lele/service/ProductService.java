@@ -58,6 +58,10 @@ public class ProductService {
 	public List<Product> findAll(){
 		return productRepository.findAll();
 	}
+
+	public List<Product> findAllDesc(){
+		return productRepository.findAllDesc();
+	}
 	
 	public List<Product> findByCategoryId(int id){
 		return productRepository.findByCategoryId(id);
